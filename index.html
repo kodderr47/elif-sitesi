@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Elif Hanım'a Özel</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Dancing Script', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #fff0f5;
+      overflow: hidden;
+      position: relative;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 24px;
+      border: none;
+      border-radius: 30px;
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s;
+      z-index: 2;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+    .mesaj {
+      display: none;
+      font-size: 32px;
+      color: #d6336c;
+      margin-top: 40px;
+      text-align: center;
+      animation: fadeIn 2s forwards;
+      z-index: 2;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .kalp {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: kalpUcus 6s linear infinite;
+      opacity: 0.7;
+    }
+    .kalp::before,
+    .kalp::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .kalp::before {
+      top: -10px;
+      left: 0;
+    }
+    .kalp::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes kalpUcus {
+      0% {
+        transform: translateY(0) scale(1) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-800px) scale(1.5) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+  <button onclick="gosterMesaj()">Bana bu tuşa bas</button>
+  <div class="mesaj" id="mesaj">
+    Çok güzelsiniz Elif Hanım,<br>bu çiçekler size 💐
+  </div>
+  <script>
+    function gosterMesaj() {
+      document.getElementById("mesaj").style.display = "block";
+      for (let i = 0; i < 50; i++) {
+        let kalp = document.createElement('div');
+        kalp.className = 'kalp';
+        kalp.style.left = Math.random() * 100 + 'vw';
+        kalp.style.animationDuration = (Math.random() * 3 + 3) + 's';
+        document.body.appendChild(kalp);
+        setTimeout(() => {
+          kalp.remove();
+        }, 6000);
+      }
+    }
+  </script>
+</body>
+</html>
