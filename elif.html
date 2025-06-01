@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Elif Hanım'a Özel</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Dancing Script', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #fff0f5;
+      transition: background 1s ease;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 24px;
+      border: none;
+      border-radius: 30px;
+      background-color: #ff69b4;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .mesaj {
+      display: none;
+      font-size: 32px;
+      color: #d6336c;
+      margin-top: 40px;
+      text-align: center;
+      animation: fadeIn 2s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .kalpli-arka-plan {
+      background: repeating-linear-gradient(
+        45deg,
+        #ffe6f0,
+        #ffe6f0 20px,
+        #fff0f5 20px,
+        #fff0f5 40px
+      ),
+      url('https://i.imgur.com/qT5R3Du.png'); /* Kalp desenli arka plan */
+      background-size: contain;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+  <button onclick="gosterMesaj()">Bana bu tuşa bas</button>
+  <div class="mesaj" id="mesaj">
+    Çok güzelsiniz Elif Hanım,<br>bu çiçekler size 💐
+  </div>
+
+  <script>
+    function gosterMesaj() {
+      document.getElementById("mesaj").style.display = "block";
+      document.body.classList.add("kalpli-arka-plan");
+    }
+  </script>
+</body>
+</html>
